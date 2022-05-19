@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function testAjax(){
+            // 向后台发送一个ajax异步请求
+            // 接收响应的数据
+            $.ajax(
+                {
+                    type:"GET",
+                    url:"jsonservlettest.do",
+                    data:{"username":"zhangsan","password":"123456"},// key=value&key=value  {"属性名":"属性值"}
+                    dataType:"json",//以什么格式接收后端响应给我们的信息
+                    success:function(list){
+                        $.each(list,function(i,e){
+                            console.log(e)
+                        })
+                    }
+                }
+            )
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="测试" onclick="testAjax()">
+</body>
+</html>
